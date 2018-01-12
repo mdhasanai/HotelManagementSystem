@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+ {% load static %}
+
+
+<html>
+
+  <head>
+    {% include 'loadBootstrap.html' %}
+  </head>
+
+<body>
+
+    <!-- PAGE WRAP -->
+    <div id="page-wrap">
+
+        <!-- navBar -->
+        {% include 'navMain.html' %}
+
+
+        <!-- SUB BANNER -->
+        <section class="section-sub-banner bg-9">
+            <div class="awe-overlay"></div>
+            <div class="sub-banner">
+                <div class="container">
+                    <div class="text text-center">
+                        <h2>ROOMS &amp; RATES</h2>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END / SUB BANNER -->
+
+
+        <!-- ROOM -->
+        <section class="section-room bg-white">
+            <div class="container">
+
+                <div class="room-wrap-1">
+                    <div class="row">
+                        {% for post in posts %}
+
+
+
+                        <!-- ITEM -->
+                        <div class="col-md-6">
+                            <div class="room_item-1">
+
+                                <h2><a href="/room/{{ post.pk }}">{{ post.room_type }}</a></h2>
+
+                                <div class="img">
+                                    {% if post.pk == 0 %}
+                                        <a href="#"><img src="{% static 'images/room/room11.jpg' %}" alt=""></a>
+                                    {% elif post.pk == 1 %}
+                                        <a href="#"><img src="{% static 'images/room/room22.jpg' %}" alt=""></a>
+                                    {% elif post.pk == 2 %}
+                                        <a href="#"><img src="{% static 'images/room/room33.jpg' %}" alt=""></a>
+                                    {% elif post.pk == 3 %}
+                                        <a href="#"><img src="{% static 'images/room/room44.jpg' %}" alt=""></a>
+                                    {% elif post.pk == 3 %}
+                                        <a href="#"><img src="{% static 'images/room/room22.jpg' %}" alt=""></a>
+                                    {% else %}
+
+                                        <a href="#"><img src="{% static 'images/room/room11.jpg' %}" alt=""></a>
+
+                                    {% endif %}
+
+                                </div>
+
+                                <div class="desc">
+                                    <p>Located in the heart of Aspen with a unique blend of contemporary luxury and historic heritage, deluxe accommodations, superb amenities, genuine hospitality and dedicated service for an elevated experience in the Rocky Mountains.</p>
+                                    <ul>
+                                        <li>Max: {{ post.room_member }} Person(s)</li>
+                                        <li>Size: {{ post.room_size }}</li>
+                                        <li>View: {{ post.room_view }}</li>
+                                        <li>Bed: {{ post.room_bed }}</li>
+                                    </ul>
+                                </div>
+
+                                <div class="bot">
+                                    <span class="price">Starting <span class="amout">${{ post.room_price }}</span> /days</span>
+                                    <a href="/room/{{ post.pk }}" class="awe-btn awe-btn-13">VIEW DETAILS</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        {% endfor %}
+                        <!-- END / ITEM -->
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- END / ROOM -->
+
+
+        {% include 'footer.html' %}
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+    {% include 'loadJquery.html' %}
+</body>
+</html>

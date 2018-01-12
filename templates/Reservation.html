@@ -1,0 +1,221 @@
+{% load static %}
+
+<html>
+
+<head>
+    {% include 'loadBootstrap.html' %}
+
+</head>
+
+
+
+
+<body>
+
+
+{#<form method="POST" action="">{% csrf_token %}#}
+{##}
+{##}
+{#{{ form.as_p}}#}
+{##}
+{#    <input type="submit" value="Sign Up">#}
+
+    <!-- PAGE WRAP -->
+    <div id="page-wrap">
+
+        <!-- navBar -->
+        {% include 'navMain.html' %}
+
+
+        <!-- SUB BANNER -->
+        <section class="section-sub-banner bg-9">
+            <div class="awe-overlay"></div>
+            <div class="sub-banner">
+                <div class="container">
+                    <div class="text text-center">
+                        <h2> Title </h2>
+                        <p>Lorem Ipsum is simply dummy text</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+        <!-- END / SUB BANNER -->
+
+
+
+
+
+        <!-- RESERVATION -->
+        <section class="section-reservation-page bg-white">
+
+            <div class="container">
+                <div class="reservation-page">
+
+                    <!-- STEP -->
+                    <div class="reservation_step">
+                        <ul>
+                            <li><a href="#"><span>1.</span>  Choose Date</a></li>
+                            <li class="active"><a href="#"><span>2.</span> Choose Room</a></li>
+                            <li><a href="#"><span>3.</span> Make a Reservation</a></li>
+                            <li><a href="#"><span>4.</span> Confirmation</a></li>
+                        </ul>
+                    </div>
+                    <!-- END / STEP -->
+
+                    <div class="row">
+
+                        <!-- SIDEBAR -->
+                        <div class="col-md-4 col-lg-3">
+                            <div class="reservation-sidebar">
+
+
+
+{#                                <!-- SIDEBAR AVAILBBILITY -->#}
+{#                                <div class="reservation-sidebar_availability bg-gray">#}
+{##}
+{#                                    <!-- HEADING -->#}
+{#                                    <h2 class="reservation-heading">YOUR RESERVATION</h2>#}
+{#                                    <!-- END / HEADING -->#}
+{##}
+{#                                    <h6 class="check_availability_title">your stay dates</h6>#}
+{##}
+{##}
+{##}
+{#                                    <form method="POST" action="">{% csrf_token %}#}
+{##}
+{##}
+{#                                            {{ form.as_p}}#}
+{##}
+{#                                    <input class="awe-btn awe-btn-13" type="submit" value="Book">#}
+{##}
+{##}
+{##}
+{##}
+{##}
+{#                                    </form>#}
+{##}
+{#                                </div>#}
+{#                                <!-- END / SIDEBAR AVAILBBILITY -->#}
+
+
+                                <div class="reservation-sidebar_availability bg-gray">
+
+                                    <!-- HEADING -->
+                                    <h2 class="reservation-heading">YOUR RESERVATION</h2>
+                                    <!-- END / HEADING -->
+
+
+
+
+
+                                    <h6 class="check_availability_title">ROOMS &amp; GUest</h6>
+
+{#                                    <div class="check_availability-field">#}
+{#                                        <label>ROOMS</label>#}
+{#                                        {{ form.room }}#}
+{#                                    </div>#}
+                                    <form method="post" action=""> {% csrf_token %}
+                                           {{ form.as_p }}
+                                        <button class="awe-btn awe-btn-13">CHECK AVAILABLE</button>
+                                    </form>
+
+
+
+
+
+
+                                </div>
+                                <!-- END / SIDEBAR AVAILBBILITY -->
+
+                            </div>
+
+                        </div>
+                        <!-- END / SIDEBAR -->
+
+                        <!-- CONTENT -->
+                        <div class="col-md-8 col-lg-9">
+
+                            <div class="reservation_content">
+
+                                <!-- RESERVATION ROOM -->
+                                <div class="reservation-room">
+
+                                    {% for post in posts %}
+
+                                        {% if post.room_availability > 0 %}
+
+
+
+                                    <!-- ITEM -->
+                                    <div class="reservation-room_item">
+
+                                        <h2 class="reservation-room_name"><a href="/room/{{ post.pk }}">{{ post.room_type }}</a></h2> <hr>
+                                        <div class="reservation-room_img">
+                                            <a href="#"><img src="{% static 'images/room/room11.jpg' %}" alt=""></a>
+                                        </div>
+
+                                        <div class="reservation-room_text">
+
+                                            <div class="reservation-room_desc">
+                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type ...</p>
+                                                <ul>
+                                                    <li>1 King Bed</li>
+                                                    <li>Free Wi-Fi in all guest rooms</li>
+                                                    <li>Separate sitting area</li>
+
+                                                </ul>
+                                            </div>
+
+                                            <a href="/room/{{ post.pk }}" class="reservation-room_view-more">View More Infomation</a>
+
+                                            <div class="clear"></div>
+
+                                            <p class="reservation-room_price">
+                                                <span class="reservation-room_amout">${{ post.room_price }}</span> / days
+                                            </p>
+
+                                            <a href="/booking" class="awe-btn awe-btn-default">BOOK ROOM</a>
+
+                                        </div>
+
+                                        <hr>
+                                        {% else  %}
+                                            <h1> Cheak Available Room</h1>
+                                        {% endif %}
+
+                                    </div>
+
+                                    {% endfor %}
+                                    <!-- END / ITEM -->
+
+
+
+                                </div>
+                                <!-- END / RESERVATION ROOM -->
+
+                            </div>
+
+                        </div>
+                        <!-- END / CONTENT -->
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- END / RESERVATION -->
+
+    {% include 'footer.html' %}
+
+
+ </div>
+{% include 'loadJquery.html' %}
+
+
+
+</body>
+
+
+</html>

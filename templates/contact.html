@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- TITLE -->
+    <title>Contact</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    {% include 'loadBootstrap.html' %}
+</head>
+ <body>
+
+    <!-- PAGE WRAP -->
+    <div id="page-wrap">
+
+        <!-- HEADER -->
+        {% include 'navMain.html' %}
+        <!-- END / HEADER -->
+
+        <!-- SUB BANNER -->
+        <section class="section-sub-banner bg-9">
+            <div class="sub-banner">
+                <div class="container">
+                    <div class="text text-center">
+                        <h2>CONTACT WITH US</h2>
+                        <p></p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+        <!-- END / SUB BANNER -->
+
+        <!-- CONTACT -->
+        <section class="section-contact">
+            <div class="container">
+                <div class="contact">
+                    <div class="row">
+
+                        <div class="col-md-6 col-lg-5">
+
+                            <div class="text">
+                                <h2>Contact</h2>
+                                <p></p>
+                                <ul>
+                                    <li><i class="icon lotus-icon-location"></i> Bashundara R/A, Dhaka-1212, Bangladesh</li>
+                                    <li><i class="icon lotus-icon-phone"></i> +8801960199155</li>
+                                    <li><i class="icon fa fa-envelope-o"></i> mdhasan@gmail.com</li>
+                                </ul>
+                            </div>
+
+                            <div class="contact-location">
+                                <a class="btn-collapse" data-toggle="collapse" href="#location">OTHER LOCATION <span class="fa fa-angle-down"></span></a>
+                                <div class="collapse" id="location">
+                                    <div class="location-group">
+                                        <h6>BASHUNDHARA</h6>
+                                        <span>Dhaka,Bangladesh</span>
+
+                                        <!-- ITEM -->
+                                        <div class="location-item" data-location="39.0926986,-94.5747324">
+                                            <div class="img">
+                                                <img src="images/contact/img-1.jpg" alt="">
+                                                <i class="fa  fa-map-marker"></i>
+                                            </div>
+                                            <div class="text">
+                                                <address>PO Box 4077, Bashundara R/A, Dhaka-1212, Bangladesh</address>
+                                                <p>
+                                                    Tel: 858 634 8975 <br>
+                                                    Mobile: 01960199155
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <!-- END / ITEM -->
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="col-md-6 col-lg-6 col-lg-offset-1">
+                            <div class="contact-form">
+                                <form id="send-contact-form" action="" method="post">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                             <label>Full Name<sup>*</sup></label>
+                                            {{ form.full_name }}
+                                        </div>
+                                        <div class="col-sm-12">
+                                             <label>Email Address<sup>*</sup></label>
+                                           {{ form.email }}
+                                        </div>
+{#                                        <div class="col-sm-12">#}
+{#                                            <input type="text" class="field-text" name="subject" placeholder="Subject">#}
+{#                                        </div>#}
+                                        <div class="col-sm-12">
+                                             <label>Message<sup>*</sup></label>
+                                            {{ form.message }}
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <button type="submit" class="awe-btn awe-btn-13">SEND</button>
+                                        </div>
+                                    </div>
+                                    <div id="contact-content"></div>
+                                </form>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END / CONTACT -->
+
+        <!-- MAP -->
+        <section class="section-map">
+            <h1 class="element-invisible">Map</h1>
+            <div class="contact-map">
+                <div id="map" data-locations="39.0926986,-94.5747324--39.0912284,-94.5743515" data-center="39.0926986,-94.5747324"></div>
+            </div>
+        </section>
+        <!-- END / MAP -->
+
+        <!-- FOOTER -->
+
+            {% include 'footer.html' %}
+        <!-- END / FOOTER -->
+
+    </div>
+    <!-- END / PAGE WRAP -->
+
+
+    <!-- LOAD JQUERY -->
+    {% include 'loadJquery.html' %}
+</body>
+</html>

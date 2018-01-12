@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% include 'bootstrap.html' %}
+{% load crispy_forms_tags %}
+
+
+
+
+{% block jumbotron %}
+
+{{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-sm-6 col-md-3">
+
+
+        <form method="POST" action="">{% csrf_token %}
+        {{ title }}
+
+        {{ form |crispy }}
+
+            <input type="submit" value="Sign Up">
+        </form>
+
+       </div>
+
+   </div>
+
+</body>
+
+{% endblock %}
