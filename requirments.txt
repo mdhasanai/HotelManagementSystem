@@ -1,0 +1,7 @@
+pip install --upgrade django-crispy-forms
+
+pip install django-forms-bootstrap
+
+pip install django-bootstrap-form
+
+pip install bootstrap3-datetime
